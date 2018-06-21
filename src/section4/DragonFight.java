@@ -12,29 +12,33 @@ public class DragonFight {
 		
 		JOptionPane.showMessageDialog(null, "Defeat the dragon to take its treasure!", "Dragon Fighter", 0, dragon);
 		// 2. Create a variable called "playerHealth" to store your health (set it equal to 100)
-	
+	int playerHealth = 100;
 		// 3. Create a variable called "dragonHealth" to store the dragon's health (set it equal to 100)
-		
+		int dragonHealth = 1;
 		// 4. Create a variable to hold the damage the player's attack does each round
-		
+		int PlayerDamage = 0;
 		// 5. Create a variable to hold the damage the dragon's attack does each round
-		
+		int DragonDamage = 0;
 		
 		// 6.  Delete the slashes at the beginning of the next line.  
-		//while(playerHealth>0 && dragonHealth>0) {    //this line of code keeps the battle going until someone's health reaches 0 
+		while(playerHealth>0 && dragonHealth>0) {    //this line of code keeps the battle going until someone's health reaches 0 
 		
 		// 7. Add a closing mustache at the very bottom of this program (since we just added an opening mustache on the previous step).
 		
 		// 8. Ask the player in a pop-up if they want to attack the dragon with a yell or a kick
-		
+	String which_attack =	JOptionPane.showInputDialog("Do you want to kick or yell at the dragon");
 		// 9. If they typed in "yell":
 		
 			//-- Find a random number between 0 and 10 and store it in dragonDamage
-			
+			if (which_attack.equals("yell")){
+				DragonDamage = DragonDamage + new Random().nextInt(10);
+			}
 			//-- Subtract that number from the dragon's health variable 
-			
+			dragonHealth = dragonHealth - DragonDamage;
 		// 10. If they typed in "kick":
-		
+			if (which_attack.equals("kick")){
+				DragonDamage = DragonDamage + new Random().nextInt(25);
+			}
 			//-- Find a random number between 0 and 25 and store it in dragonDamage
 			
 			//-- Subtract that number from the dragon's health variable
@@ -53,7 +57,9 @@ public class DragonFight {
 			
 		
 		// 14. Else if the dragon's health is less than or equal to 0
-		
+		if(dragonHealth == 0){
+			JOptionPane.showMessageDialog(null, "you beat up the dragon and stole all of his money");
+		}
 			//-- Tell the user that the dragon is dead and they took a ton of gold!
 			
 	   //  15.  Else
@@ -62,4 +68,4 @@ public class DragonFight {
 			
 		}
 	}
-
+}
